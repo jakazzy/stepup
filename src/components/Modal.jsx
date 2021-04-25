@@ -21,7 +21,12 @@ const Modal = () => {
               <h5 className="modal-title text-center">
                 REQUIREMENTS AND ELIGIBILTY
               </h5>
-              <button type="button" className="close" onClick={handleShow}>
+              <button
+                type="button"
+                id="close-button"
+                className="close"
+                onClick={handleShow}
+              >
                 <span>&times;</span>
               </button>
             </div>

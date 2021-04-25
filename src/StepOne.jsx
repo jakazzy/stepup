@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FormContext } from "./context/FormContext";
-import { getGender } from "./api/api";
+// import { getGender } from "./api/api";
 
 function StepOne() {
   const {
@@ -27,8 +27,11 @@ function StepOne() {
   };
   useEffect(() => {
     async function fetchGender() {
-      const gender = await getGender();
-      setGen(gender);
+      // const gender = await getGender();
+      setGen([
+        { id: "1", type: "gend", name: "male" },
+        { id: "2", type: "gend", name: "female" },
+      ]);
     }
     fetchGender();
   }, []);
@@ -155,7 +158,7 @@ function StepOne() {
             style={buttonsState.showPreviousBtn ? {} : { display: "none" }}
             onClick={previous}
             type="button"
-            className="btn btn-primary nav-btn"
+            className="btn btn-primary nav-btn previous"
           >
             Prev
           </button>
@@ -164,7 +167,7 @@ function StepOne() {
             style={buttonsState.showNextBtn ? {} : { display: "none" }}
             // onClick={next}
             type="submit"
-            className="btn btn-primary nav-btn"
+            className="btn btn-primary nav-btn next"
           >
             Next
           </button>

@@ -1,0 +1,20 @@
+describe("It renders the page correctly",()=>{
+    it("renders the modal and nav bar correctly", ()=>{
+        cy.visit("/")
+        cy.get(".navbar").should("exist")
+        cy.get(".container").should("exist")
+        cy.get(".modal").should("exist")
+        cy.get("#close-button").click()
+        cy.get(".modal").should("have.class", "d-none")
+    })
+    it("renders the form correctly", ()=>{
+        cy.visit("/")
+        cy.get("#close-button").click()
+        cy.get('input[name="trainer_name"]').type("Akorfa Glover")
+        cy.get('input[name="gend"]').first().check()
+        cy.get('input[name="telephone"]').type("0501313245")
+        cy.get('input[name="email"]').type("female@gmail.com")
+        cy.get('input[name="digital_address"]').type("Ghana Post Digital Address")
+        cy.get(".next").click()
+    })
+})
